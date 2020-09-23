@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Robot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/CreateGroundMeshLib.tres" type="MeshLibrary" id=2]
+[ext_resource path="res://scenes/Main2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Game.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="Game" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="World" type="Spatial" parent="."]
+
+[node name="Ground" type="GridMap" parent="World"]
+mesh_library = ExtResource( 2 )
+cell_size = Vector3( 10, 2, 10 )
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="Robot" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7658, 14.477 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -129.0
+margin_right = 129.0
+margin_bottom = 183.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main2D" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 512.571, 91.8776 )
