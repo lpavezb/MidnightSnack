@@ -13,8 +13,8 @@
 [ext_resource path="res://resources/push_button_right.png" type="Texture" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 15.4028
-height = 32.7747
+radius = 2.94679
+height = 4.261
 
 [sub_resource type="Animation" id=6]
 resource_name = "DropBoxLeft"
@@ -71,6 +71,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "DropBoxRight"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:texture")
 tracks/0/interp = 1
@@ -520,22 +521,18 @@ tracks/3/keys = {
 }
 
 [node name="Astronaut" type="KinematicBody2D"]
-position = Vector2( 425.494, 280.859 )
-scale = Vector2( 6, 6 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.05176e-05, -1.33484 )
+position = Vector2( -0.655479, 11.0262 )
+rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="icon" type="Sprite" parent="."]
 position = Vector2( 0.20636, -0.143036 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 8 )
-hframes = 8
+texture = ExtResource( 10 )
+hframes = 10
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/DropBoxLeft = SubResource( 6 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/animacion_ventana.png-e0ee2ee08782457ffdea05eabe8afff2.stex"
+path="res://.import/box.png-69132ea9cb8c38a4b847af5897cdecbb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/animacion_ventana.png"
-dest_files=[ "res://.import/animacion_ventana.png-e0ee2ee08782457ffdea05eabe8afff2.stex" ]
+source_file="res://resources/box.png"
+dest_files=[ "res://.import/box.png-69132ea9cb8c38a4b847af5897cdecbb.stex" ]
 
 [params]
 

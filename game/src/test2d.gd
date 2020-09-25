@@ -15,32 +15,36 @@ func _ready():
 #func _process(delta):
 #	pass
 var flip = true
-var vel = 10
+var SPEED = 300
+var linear_vel = Vector2()
 func _physics_process(_delta):
+	var target_vel = Vector2(
+		Input.get_action_strength("right") - Input.get_action_strength("left"), 
+		Input.get_action_strength("down") - Input.get_action_strength("up"))
+	
+	linear_vel = lerp(linear_vel, target_vel * SPEED, 0.5)
+	linear_vel = move_and_slide(linear_vel)
 	var moving = Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")
+	
 	if moving:
 		if Input.is_action_pressed("ui_right"):
 			$AnimationPlayer.play("RunRight")
 			flip = true
-			position.x += vel
 			
 		if Input.is_action_pressed("ui_left"):
 			$AnimationPlayer.play("RunLeft")
 			flip = false
-			position.x -= vel
 	
 		if Input.is_action_pressed("ui_up"):
 			if flip:
 				$AnimationPlayer.play("RunRight")
 			else:
 				$AnimationPlayer.play("RunLeft")
-			position.y -= vel
 		if Input.is_action_pressed("ui_down"):
 			if flip:
 				$AnimationPlayer.play("RunRight")
 			else:
 				$AnimationPlayer.play("RunLeft")
-			position.y += vel
 	else:
 		if flip:
 			$AnimationPlayer.play("IdleRight")
