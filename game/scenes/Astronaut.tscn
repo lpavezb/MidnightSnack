@@ -1,14 +1,118 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/astronauta_run_right.png" type="Texture" id=1]
 [ext_resource path="res://src/test2d.gd" type="Script" id=2]
 [ext_resource path="res://resources/astronauta_idle.png" type="Texture" id=3]
 [ext_resource path="res://resources/astronauta_run_left.png" type="Texture" id=4]
 [ext_resource path="res://resources/astronauta_idle_right.png" type="Texture" id=5]
+[ext_resource path="res://resources/drop_box_right.png" type="Texture" id=6]
+[ext_resource path="res://resources/drop_box.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.4028
 height = 32.7747
+
+[sub_resource type="Animation" id=6]
+resource_name = "DropBoxLeft"
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("icon:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("icon:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("icon:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "DropBoxRight"
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("icon:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("icon:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("icon:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "IdleLeft"
@@ -221,27 +325,28 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[node name="Main2D" type="Node2D"]
-position = Vector2( 476.652, 284.941 )
-
-[node name="Astronaut" type="KinematicBody2D" parent="."]
+[node name="Astronaut" type="KinematicBody2D"]
+position = Vector2( 425.494, 280.859 )
 scale = Vector2( 6, 6 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Astronaut"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.05176e-05, -1.33484 )
 shape = SubResource( 1 )
 
-[node name="icon" type="Sprite" parent="Astronaut"]
+[node name="icon" type="Sprite" parent="."]
 position = Vector2( 0.20636, -0.143036 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-hframes = 10
+texture = ExtResource( 7 )
+hframes = 12
+frame = 11
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Astronaut"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DropBoxLeft = SubResource( 6 )
+anims/DropBoxRight = SubResource( 7 )
 anims/IdleLeft = SubResource( 2 )
 anims/IdleRight = SubResource( 3 )
 anims/RunLeft = SubResource( 4 )
