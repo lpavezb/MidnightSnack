@@ -1,23 +1,40 @@
 extends KinematicBody2D
 
-onready var animation_mode = $AnimationTree.get("parameters/playback")
-var box = false
 var SPEED = 300
 var linear_vel = Vector2()
+
+onready var animation_mode = $AnimationTree.get("parameters/playback")
+onready var Nave = get_parent()
+
 signal drop_box
 signal pick_box
-var still=false
-var stopped=true
+signal position
+
+var box = false
+var still = false
+var stopped = true
 var target_vel
 var dir
+var box_near
+var look
 
 func _ready():
 	$Timer.connect("timeout", self, "_on_Timer_timeout")
+	Nave.connect("box_near", self, "pick_box")
+	
 
 func _on_Timer_timeout():
+	print("Tiempo")
 	stopped=true
+	
+func pick_box(near):
+	if near:
+		box_near=true
+	else:
+		box_near=false
 
 func _physics_process(_delta):
+	emit_signal("position",$Position2D.position)
 	var target_vel = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 
 		Input.get_action_strength("down") - Input.get_action_strength("up"))
@@ -28,30 +45,35 @@ func _physics_process(_delta):
 	else:
 		linear_vel = lerp(linear_vel, target_vel * SPEED, 0.5)
 		linear_vel = move_and_slide(linear_vel)
+		if linear_vel.x<0:
+			look=Vector2(-1,0)
+		elif linear_vel.x>0:
+			look=Vector2(1,0)
+		else:
+			pass
 	
-	$AnimationTree.set("parameters/Idle/blend_position",linear_vel.normalized())
-	$AnimationTree.set("parameters/Run/blend_position",linear_vel.normalized())
-	$AnimationTree.set("parameters/PushButton/blend_position",linear_vel.normalized())
-	$AnimationTree.set("parameters/RunBox/blend_position",linear_vel.normalized())
-	$AnimationTree.set("parameters/IdleBox/blend_position",linear_vel.normalized())
+	$AnimationTree.set("parameters/Run/blend_position",look)
+	$AnimationTree.set("parameters/Idle/blend_position",look)
+	$AnimationTree.set("parameters/PushButton/blend_position",look)
+	$AnimationTree.set("parameters/RunBox/blend_position",look)
+	$AnimationTree.set("parameters/IdleBox/blend_position",look)
 	
 	if box:
 		if still:
 			linear_vel=Vector2(0,0)
-			emit_signal("pick_box",dir)
 			if stopped:
+				emit_signal("drop_box")
 				still=false
+				box=false
 				
-		if Input.is_action_just_pressed("action"):
-			$AnimationTree.set("parameters/DropBox/blend_position",linear_vel.normalized())
+		elif Input.is_action_just_pressed("action"):
+			$AnimationTree.set("parameters/DropBox/blend_position",look)
 			animation_mode.travel("Idle")
-			$Timer.start(1.1)
-			
+			$Timer.start()
 			still=true
 			stopped=false
-			box=false
 			
-		if moving:
+		elif moving:
 			animation_mode.travel("RunBox")
 		else:
 			animation_mode.travel("IdleBox")
@@ -60,19 +82,22 @@ func _physics_process(_delta):
 		if still:
 			linear_vel=Vector2(0,0)
 			if stopped:
-				dir=$Position2D.position
-				emit_signal("drop_box",dir)
+				box=true
+				box_near=false
 				still=false
 				
-		if Input.is_action_just_pressed("action"):
-			$AnimationTree.set("parameters/PickBox/blend_position",linear_vel.normalized())
-			animation_mode.travel("IdleBox")
-			$Timer.start(1.1)
-			still=true
-			stopped=false
-			box=true
-			
-		if moving:
+		elif Input.is_action_just_pressed("action"):
+			$AnimationTree.set("parameters/PickBox/blend_position",look)
+			if box_near:
+				$Timer.start()
+				animation_mode.travel("IdleBox")
+				emit_signal("pick_box")
+				still=true
+				stopped=false
+				
+			else:
+				pass
+		elif moving:
 			animation_mode.travel("Run")
 		else:
 			animation_mode.travel("Idle")
