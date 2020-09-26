@@ -2,16 +2,21 @@ extends Node2D
 
 
 var Box = preload("res://scenes/Box.tscn")
+var box = Box.instance()
+onready var Astronaut = get_node("Astronaut")
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$Timer.connect("timeout", self, "on_timeout")
+	Astronaut.connect("drop_box", self, "appear_box")
+	Astronaut.connect("pick_box", self, "disappear_box")
 
-func on_timeout():
-	var box = Box.instance()
+
+func appear_box(dir):
 	add_child(box)
-	box.global_position = $Position2D.global_position
+	box.set_position(Astronaut.get_position()+dir)
+	
+func disappear_box(dir):
+	remove_child(box)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

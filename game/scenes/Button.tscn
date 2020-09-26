@@ -9,10 +9,6 @@ extents = Vector2( 8.5, 10.5 )
 [node name="Button" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, 0.5 )
-shape = SubResource( 1 )
-
 [node name="Button" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 region_enabled = true
@@ -23,3 +19,8 @@ visible = false
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 176, 160, 32, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.5, 0.5 )
+shape = SubResource( 1 )
