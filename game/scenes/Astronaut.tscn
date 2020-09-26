@@ -1103,7 +1103,7 @@ shape = SubResource( 1 )
 [node name="icon" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 10
-frame = 4
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/DropBoxLeft = SubResource( 2 )

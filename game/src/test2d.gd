@@ -29,8 +29,10 @@ func _on_Timer_timeout():
 	
 func pick_box(near):
 	if near:
+		print("cerca")
 		box_near=true
 	else:
+		print("lejos")
 		box_near=false
 
 func _physics_process(_delta):

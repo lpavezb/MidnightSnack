@@ -21,7 +21,7 @@ func _process(_delta):
 	if get_node_or_null("Box")!=null:
 		astro_position=Astronaut.get_position()+grab_position
 		box_position=box.get_position()
-		if astro_position.x>box_position.x-20 and astro_position.x<box_position.x+20 and astro_position.y>box_position.y-20 and astro_position.y<box_position.y+20:
+		if astro_position.x>box_position.x-16 and astro_position.x<box_position.x+16 and astro_position.y>box_position.y-16 and astro_position.y<box_position.y+16:
 			emit_signal("box_near",true)
 		else:
 			emit_signal("box_near",false)
