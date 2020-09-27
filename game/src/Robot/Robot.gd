@@ -1,13 +1,16 @@
 extends KinematicBody
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var dir=0
 var character
-
+onready var ButtonLeft = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonLeft")
+onready var ButtonRight = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonRight")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ButtonLeft.connect("pressed",self,"turn_left")
+	ButtonRight.connect("pressed",self,"turn_right")
+	ButtonLeft.connect("unpressed",self,"turn_right")
+	ButtonRight.connect("unpressed",self,"turn_left")
 	var anim = $AnimationPlayer.get_animation("Robot_Walking")
 	anim.set_loop(true)
 	character = get_node("./Skeleton")
@@ -19,11 +22,10 @@ func _ready():
 #func _process(delta):
 #	pass
 var linear_vel = Vector3()
-var speed = 2
+var speed = 1.5
 
 func _physics_process(_delta):
-	var target_vel=Vector3(Input.get_action_strength("ui_left")-Input.get_action_strength("ui_right"),
-	-2,Input.get_action_strength("ui_up")-Input.get_action_strength("ui_down")) * speed
+	var target_vel=Vector3(dir,-2,1) * speed
 	var is_moving = target_vel.x != 0 or target_vel.z != 0
 	
 	linear_vel=lerp(linear_vel,target_vel*10,0.3)
@@ -37,8 +39,9 @@ func _physics_process(_delta):
 		character.set_rotation(char_rot)
 	
 func turn_left():
+	dir+=1
 	rotation_degrees.y +=2
 
 func turn_right():
+	dir-=1
 	rotation_degrees.y -=2
-	

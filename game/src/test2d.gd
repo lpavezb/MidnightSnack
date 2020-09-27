@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var SPEED = 300
+var SPEED = Vector2(300,200)
 var linear_vel = Vector2()
 
 onready var animation_mode = $AnimationTree.get("parameters/playback")
@@ -24,15 +24,12 @@ func _ready():
 	
 
 func _on_Timer_timeout():
-	print("Tiempo")
 	stopped=true
 	
 func pick_box(near):
 	if near:
-		print("cerca")
 		box_near=true
 	else:
-		print("lejos")
 		box_near=false
 
 func _physics_process(_delta):

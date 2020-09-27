@@ -38,6 +38,7 @@ func appear_box():
 func disappear_box():
 	remove_child(box)
 	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

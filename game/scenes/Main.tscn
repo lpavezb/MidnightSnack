@@ -32,19 +32,19 @@ __meta__ = {
 [node name="Robot" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7658, 14.477 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Escena2D" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="Contenedor" type="PanelContainer" parent="Escena2D"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -253.0
-margin_right = 864.0
-margin_bottom = 3.0
+margin_top = -320.0
+margin_right = 512.0
+margin_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Nave" parent="CanvasLayer/PanelContainer" instance=ExtResource( 4 )]
+[node name="Nave" parent="Escena2D/Contenedor" instance=ExtResource( 4 )]
