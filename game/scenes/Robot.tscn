@@ -6,6 +6,10 @@
 [ext_resource path="res://src/Robot/Robot.gd" type="Script" id=4]
 [ext_resource path="res://src/Robot/CameraFollow.gd" type="Script" id=5]
 
+[sub_resource type="CapsuleShape" id=15]
+radius = 1.1
+height = 2.91028
+
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cylinder.010"
 surfaces/0 = {
@@ -294,10 +298,6 @@ surfaces/1 = {
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.598929, 1.51822, -0.0195812, 1.19244, 0.0736241, 0.661063 ), AABB( -0.598929, 1.51822, -0.680644, 1.17464, 0.0736241, 0.661063 ), AABB( -0.626055, 1.51822, -0.680644, 1.24668, 0.0736241, 1.32213 ), AABB( -0.598929, 1.51822, -0.680644, 1.19243, 0.0736241, 1.32213 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0.268444, 2.22772, -0.231977, 0.300521, 0.425454, 0.425454 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.574396, 2.22772, -0.231977, 0.300531, 0.425454, 0.425454 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.00271564, 1.34352, -0.680644, 0.756612, 0.435812, 1.32213 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.764635, 1.34352, -0.680644, 0.761919, 0.435812, 1.32213 ) ],
 "vertex_count": 560
 }
-
-[sub_resource type="CapsuleShape" id=15]
-radius = 1.1
-height = 2.91028
 
 [sub_resource type="Animation" id=16]
 length = 3.33333
@@ -4585,6 +4585,10 @@ transitions = [ "Robot_Idle", "Robot_Walking", SubResource( 32 ) ]
 [node name="Robot" type="KinematicBody"]
 script = ExtResource( 4 )
 
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 2.54784, 0 )
+shape = SubResource( 15 )
+
 [node name="Skeleton" type="Skeleton" parent="."]
 bones/0/name = "Bone"
 bones/0/parent = -1
@@ -4862,10 +4866,6 @@ material/0 = null
 mesh = SubResource( 14 )
 material/0 = null
 material/1 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 2.54784, 0 )
-shape = SubResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Robot_Dance = SubResource( 16 )
