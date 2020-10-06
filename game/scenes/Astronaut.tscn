@@ -17,7 +17,7 @@
 radius = 2.94679
 height = 2.9581
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=2]
 resource_name = "BackButton"
 length = 0.6
 tracks/0/type = "value"
@@ -57,9 +57,8 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "DropBoxLeft"
-length = 1.1
+[sub_resource type="Animation" id=3]
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:texture")
 tracks/0/interp = 1
@@ -121,9 +120,8 @@ tracks/4/keys = {
 "values": [ Vector2( -9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "DropBoxRight"
-length = 1.1
+[sub_resource type="Animation" id=4]
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:texture")
 tracks/0/interp = 1
@@ -185,8 +183,7 @@ tracks/4/keys = {
 "values": [ Vector2( 9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "IdleBox"
+[sub_resource type="Animation" id=5]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -250,8 +247,7 @@ tracks/4/keys = {
 "values": [ Vector2( -9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "IdleBoxRight"
+[sub_resource type="Animation" id=6]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -315,7 +311,7 @@ tracks/4/keys = {
 "values": [ Vector2( 9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 1.1
 loop = true
 tracks/0/type = "value"
@@ -379,7 +375,7 @@ tracks/4/keys = {
 "values": [ Vector2( -9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 1.1
 loop = true
 tracks/0/type = "value"
@@ -443,8 +439,7 @@ tracks/4/keys = {
 "values": [ Vector2( 9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "PickBoxLeft"
+[sub_resource type="Animation" id=9]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:texture")
@@ -507,8 +502,7 @@ tracks/4/keys = {
 "values": [ Vector2( -9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "PickBoxRight"
+[sub_resource type="Animation" id=10]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:texture")
@@ -571,7 +565,7 @@ tracks/4/keys = {
 "values": [ Vector2( 9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:texture")
@@ -634,7 +628,7 @@ tracks/4/keys = {
 "values": [ Vector2( -9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:texture")
@@ -697,7 +691,7 @@ tracks/4/keys = {
 "values": [ Vector2( 9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -737,7 +731,7 @@ tracks/2/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -801,8 +795,7 @@ tracks/4/keys = {
 "values": [ Vector2( -9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "RunBoxRight"
+[sub_resource type="Animation" id=15]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -866,7 +859,7 @@ tracks/4/keys = {
 "values": [ Vector2( 9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -930,7 +923,7 @@ tracks/4/keys = {
 "values": [ Vector2( -9.5, 6.5 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -994,109 +987,103 @@ tracks/4/keys = {
 "values": [ Vector2( 9.5, 6.5 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=51]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "BackButton"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "DropBoxLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "DropBoxRight"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=19]
-blend_point_0/node = SubResource( 17 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=21]
+blend_point_0/node = SubResource( 19 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 18 )
+blend_point_1/node = SubResource( 20 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "IdleLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=23]
 animation = "IdleRight"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=22]
-blend_point_0/node = SubResource( 20 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=24]
+blend_point_0/node = SubResource( 22 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 21 )
+blend_point_1/node = SubResource( 23 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=25]
 animation = "IdleBox"
 
-[sub_resource type="AnimationNodeAnimation" id=24]
+[sub_resource type="AnimationNodeAnimation" id=26]
 animation = "IdleBoxRight"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=25]
-blend_point_0/node = SubResource( 23 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=27]
+blend_point_0/node = SubResource( 25 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 24 )
+blend_point_1/node = SubResource( 26 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=26]
+[sub_resource type="AnimationNodeAnimation" id=28]
 animation = "PickBoxLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=27]
+[sub_resource type="AnimationNodeAnimation" id=29]
 animation = "PickBoxRight"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=28]
-blend_point_0/node = SubResource( 26 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=30]
+blend_point_0/node = SubResource( 28 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 27 )
+blend_point_1/node = SubResource( 29 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=29]
+[sub_resource type="AnimationNodeAnimation" id=31]
 animation = "PushButtonLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=30]
+[sub_resource type="AnimationNodeAnimation" id=32]
 animation = "PushButtonRight"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=31]
-blend_point_0/node = SubResource( 29 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=33]
+blend_point_0/node = SubResource( 31 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 30 )
+blend_point_1/node = SubResource( 32 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=32]
+[sub_resource type="AnimationNodeAnimation" id=34]
 animation = "RunLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=33]
+[sub_resource type="AnimationNodeAnimation" id=35]
 animation = "RunRight"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=34]
-blend_point_0/node = SubResource( 32 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=36]
+blend_point_0/node = SubResource( 34 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 33 )
+blend_point_1/node = SubResource( 35 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=35]
+[sub_resource type="AnimationNodeAnimation" id=37]
 animation = "RunBoxLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=36]
+[sub_resource type="AnimationNodeAnimation" id=38]
 animation = "RunBoxRight"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=37]
-blend_point_0/node = SubResource( 35 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=39]
+blend_point_0/node = SubResource( 37 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 36 )
+blend_point_1/node = SubResource( 38 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=40]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=42]
 
@@ -1107,40 +1094,46 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=44]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=45]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=46]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=48]
-states/BackButton/node = SubResource( 51 )
+[sub_resource type="AnimationNodeStateMachine" id=52]
+states/BackButton/node = SubResource( 18 )
 states/BackButton/position = Vector2( 212, -26 )
-states/DropBox/node = SubResource( 19 )
+states/DropBox/node = SubResource( 21 )
 states/DropBox/position = Vector2( 105, 193 )
-states/Idle/node = SubResource( 22 )
+states/Idle/node = SubResource( 24 )
 states/Idle/position = Vector2( 105, 78 )
-states/IdleBox/node = SubResource( 25 )
+states/IdleBox/node = SubResource( 27 )
 states/IdleBox/position = Vector2( -81, 193 )
-states/PickBox/node = SubResource( 28 )
+states/PickBox/node = SubResource( 30 )
 states/PickBox/position = Vector2( -81, 78 )
-states/PushButton/node = SubResource( 31 )
+states/PushButton/node = SubResource( 33 )
 states/PushButton/position = Vector2( -6, -26 )
-states/Run/node = SubResource( 34 )
+states/Run/node = SubResource( 36 )
 states/Run/position = Vector2( 296, 78 )
-states/RunBox/node = SubResource( 37 )
+states/RunBox/node = SubResource( 39 )
 states/RunBox/position = Vector2( -280, 193 )
-transitions = [ "Idle", "Run", SubResource( 38 ), "Run", "Idle", SubResource( 39 ), "Idle", "PushButton", SubResource( 40 ), "PushButton", "Idle", SubResource( 41 ), "Idle", "PickBox", SubResource( 42 ), "PickBox", "IdleBox", SubResource( 43 ), "IdleBox", "RunBox", SubResource( 44 ), "RunBox", "IdleBox", SubResource( 45 ), "IdleBox", "DropBox", SubResource( 46 ), "DropBox", "Idle", SubResource( 47 ), "Idle", "BackButton", SubResource( 52 ), "BackButton", "Idle", SubResource( 53 ) ]
+transitions = [ "Idle", "Run", SubResource( 40 ), "Run", "Idle", SubResource( 41 ), "Idle", "PushButton", SubResource( 42 ), "PushButton", "Idle", SubResource( 43 ), "Idle", "PickBox", SubResource( 44 ), "PickBox", "IdleBox", SubResource( 45 ), "IdleBox", "RunBox", SubResource( 46 ), "RunBox", "IdleBox", SubResource( 47 ), "IdleBox", "DropBox", SubResource( 48 ), "DropBox", "Idle", SubResource( 49 ), "Idle", "BackButton", SubResource( 50 ), "BackButton", "Idle", SubResource( 51 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -535, -65 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=49]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=53]
 
 [node name="Astronaut" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -1154,31 +1147,31 @@ shape = SubResource( 1 )
 [node name="icon" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 10
-frame = 9
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/BackButton = SubResource( 50 )
-anims/DropBoxLeft = SubResource( 2 )
-anims/DropBoxRight = SubResource( 3 )
-anims/IdleBox = SubResource( 4 )
-anims/IdleBoxRight = SubResource( 5 )
-anims/IdleLeft = SubResource( 6 )
-anims/IdleRight = SubResource( 7 )
-anims/PickBoxLeft = SubResource( 8 )
-anims/PickBoxRight = SubResource( 9 )
-anims/PushButtonLeft = SubResource( 10 )
-anims/PushButtonRight = SubResource( 11 )
-anims/RunBox = SubResource( 12 )
-anims/RunBoxLeft = SubResource( 13 )
-anims/RunBoxRight = SubResource( 14 )
-anims/RunLeft = SubResource( 15 )
-anims/RunRight = SubResource( 16 )
+anims/BackButton = SubResource( 2 )
+anims/DropBoxLeft = SubResource( 3 )
+anims/DropBoxRight = SubResource( 4 )
+anims/IdleBox = SubResource( 5 )
+anims/IdleBoxRight = SubResource( 6 )
+anims/IdleLeft = SubResource( 7 )
+anims/IdleRight = SubResource( 8 )
+anims/PickBoxLeft = SubResource( 9 )
+anims/PickBoxRight = SubResource( 10 )
+anims/PushButtonLeft = SubResource( 11 )
+anims/PushButtonRight = SubResource( 12 )
+anims/RunBox = SubResource( 13 )
+anims/RunBoxLeft = SubResource( 14 )
+anims/RunBoxRight = SubResource( 15 )
+anims/RunLeft = SubResource( 16 )
+anims/RunRight = SubResource( 17 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 48 )
+tree_root = SubResource( 52 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 49 )
+parameters/playback = SubResource( 53 )
 parameters/DropBox/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/IdleBox/blend_position = Vector2( 0, 0 )
