@@ -752,6 +752,10 @@ tracks/0/keys = {
 scale = Vector2( 2, 2 )
 script = ExtResource( 6 )
 
+[node name="Astronaut" parent="." instance=ExtResource( 4 )]
+position = Vector2( 96, 107.5 )
+z_index = 1
+
 [node name="TileMapPiso" type="TileMap" parent="."]
 tile_set = SubResource( 51 )
 cell_size = Vector2( 16, 16 )
@@ -787,8 +791,5 @@ position = Vector2( 88, 64 )
 [node name="Switch" parent="." instance=ExtResource( 9 )]
 position = Vector2( 120, 64 )
 
-[node name="JumpButton2" parent="." instance=ExtResource( 10 )]
+[node name="GravityButton" parent="." instance=ExtResource( 10 )]
 position = Vector2( 152, 64 )
-
-[node name="Astronaut" parent="." instance=ExtResource( 4 )]
-position = Vector2( 96, 108 )

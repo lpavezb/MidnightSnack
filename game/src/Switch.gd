@@ -6,9 +6,17 @@ extends StaticBody2D
 # var b = "text"
 var state = 2 # {0: up, 1: center, 2: down}
 var dir = 1 # {0: top-down, 1: down-top}
+var can_press = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Piso.connect("body_entered", self, "on_body_entered")
+	$Piso.connect("body_exited", self, "on_body_exited")
+
+func on_body_entered(body: Node):
+	can_press = true
+
+func on_body_exited(body: Node):
+	can_press = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +24,7 @@ func _ready():
 #	pass
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("action"):
+	if Input.is_action_just_pressed("action") and can_press:
 		press()
 	
 func press():
