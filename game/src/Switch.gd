@@ -25,6 +25,7 @@ func on_body_exited(body: Node):
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("action") and can_press:
+		get_parent().get_child(0).get_child(3).get("parameters/playback").travel("BackButton")
 		press()
 	
 func press():
