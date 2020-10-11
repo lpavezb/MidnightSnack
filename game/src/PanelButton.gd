@@ -22,6 +22,13 @@ func on_body_exited(body: Node):
 #	pass
 
 func _physics_process(_delta):
+	if can_press:
+		$Button.modulate = Color(133/255, 1, 0, 1)
+		$ButtonPressed.modulate = Color(133/255, 1, 0, 1)
+	else:
+		$Button.modulate = Color(1, 1, 1, 1)
+		$ButtonPressed.modulate = Color(1, 1, 1, 1)
+		
 	if Input.is_action_just_pressed("action") and can_press:
 		press()
 		
