@@ -3,22 +3,22 @@
 [ext_resource path="res://Character/character.glb" type="PackedScene" id=1]
 [ext_resource path="res://src/Robot/CameraFollow.gd" type="Script" id=7]
 
-[sub_resource type="AnimationNodeAnimation" id=2]
+[sub_resource type="AnimationNodeAnimation" id=1]
 animation = "Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=3]
+[sub_resource type="AnimationNodeAnimation" id=2]
 animation = "sleep_walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=4]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=7]
-
 [sub_resource type="AnimationNodeStateMachine" id=5]
-states/Jump/node = SubResource( 2 )
+states/Jump/node = SubResource( 1 )
 states/Jump/position = Vector2( 450, 65 )
-states/sleep_walk/node = SubResource( 3 )
+states/sleep_walk/node = SubResource( 2 )
 states/sleep_walk/position = Vector2( 201, 68 )
-transitions = [ "sleep_walk", "Jump", SubResource( 4 ), "Jump", "sleep_walk", SubResource( 7 ) ]
+transitions = [ "sleep_walk", "Jump", SubResource( 3 ), "Jump", "sleep_walk", SubResource( 4 ) ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
