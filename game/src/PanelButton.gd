@@ -4,6 +4,7 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+signal pressed
 
 var can_press = false
 # Called when the node enters the scene tree for the first time.
@@ -37,3 +38,4 @@ func press():
 		$ButtonPressed.hide()
 	else:
 		$ButtonPressed.show()
+		emit_signal("pressed")

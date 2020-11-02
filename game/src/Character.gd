@@ -5,11 +5,11 @@ var dir=0
 var character
 onready var ButtonLeft = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonLeft")
 onready var ButtonRight = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonRight")
-#Se debe crear un boton de salto, que emita una señal como las de los otros dos
-#onready var ButtonJump = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonJump")
+onready var ButtonJump = get_node("/root/Game/Escena2D/Contenedor/Nave/JumpButton")
 
 onready var anim_player = $character/AnimationPlayer
 var jumping = false
+var crouching = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,12 +18,13 @@ func _ready():
 	ButtonLeft.connect("unpressed",self,"turn_right")
 	ButtonRight.connect("unpressed",self,"turn_left")
 	
-	#Una vez creado el boton de salto, con esto se conecta a la funcion.
-	#ButtonJump.connect("pressed",self,"jump")
+	
+	ButtonJump.connect("pressed",self,"jump")
 	
 	
 	
 	anim_player.get_animation("sleep_walk").set_loop(true)
+	anim_player.get_animation("crouch_walk").set_loop(true)
 	character = get_node("./character/Armature/Skeleton")
 	anim_player.play("sleep_walk")
 	
@@ -35,7 +36,7 @@ func _ready():
 #func _process(delta):
 #	pass
 var linear_vel = Vector3()
-var speed = 0.3
+var speed = 0.15
 
 func _physics_process(_delta):
 	var target_vel = Vector3(dir,-2,1) * speed
@@ -63,6 +64,10 @@ func turn_right():
 func jump():
 	jumping = true
 	anim_player.play("Jump")
+	
+func crouch():
+	crouching = true
+	anim_player.play("crouch_walk")
 	
 func walk(current_animation):
 	if(current_animation == "Jump"):
