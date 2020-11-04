@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/puente.tres" type="MeshLibrary" id=6]
 [ext_resource path="res://scenes/pisomadera.tres" type="MeshLibrary" id=7]
 
+
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 8
@@ -32,8 +33,15 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
 
-[node name="Character" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00136423, 3.31691, 14.6271 )
+[node name="Character" type="KinematicBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.79886, 14.5592 )
+script = ExtResource( 6 )
+
+[node name="character" parent="Character" instance=ExtResource( 3 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Character"]
+transform = Transform( 0.4, 0, 0, 0, 0.784, 0, 0, 0, 0.4, 0, 0.787, 0.092 )
+shape = SubResource( 1 )
 
 [node name="Robot" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7658, 14.477 )

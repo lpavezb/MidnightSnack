@@ -24,6 +24,15 @@ func on_body_exited(body: Node):
 #	pass
 
 func _physics_process(delta):
+	if can_press:
+		$SwitchUp.modulate = Color(133/255, 1, 0, 1)
+		$SwitchCenter.modulate = Color(133/255, 1, 0, 1)
+		$SwitchDown.modulate = Color(133/255, 1, 0, 1)
+	else:
+		$SwitchUp.modulate = Color(1, 1, 1, 1)
+		$SwitchCenter.modulate = Color(1, 1, 1, 1)
+		$SwitchDown.modulate = Color(1, 1, 1, 1)
+		
 	if Input.is_action_just_pressed("action") and can_press:
 		get_parent().get_child(0).get_child(3).get("parameters/playback").travel("BackButton")
 		press()
