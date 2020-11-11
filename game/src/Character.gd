@@ -10,7 +10,7 @@ onready var ButtonJump = get_node("/root/Game/Escena2D/Contenedor/Nave/JumpButto
 onready var anim_player = $character/AnimationPlayer
 var jumping = false
 var crouching = false
-
+var gravity = -2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ButtonLeft.connect("pressed",self,"turn_left")
@@ -36,10 +36,11 @@ func _ready():
 #func _process(delta):
 #	pass
 var linear_vel = Vector3()
-var speed = 0.15
+var speed = 0.5
 
 func _physics_process(_delta):
-	var target_vel = Vector3(dir,-2,1) * speed
+		
+	var target_vel = Vector3(dir,gravity,1) * speed
 	var is_moving = target_vel.x != 0 or target_vel.z != 0
 	
 	linear_vel = lerp(linear_vel,target_vel*10,0.3)
@@ -62,6 +63,7 @@ func turn_right():
 	rotation_degrees.y -=2
 
 func jump():
+	gravity = 0
 	jumping = true
 	anim_player.play("Jump")
 	
@@ -69,7 +71,9 @@ func crouch():
 	crouching = true
 	anim_player.play("crouch_walk")
 	
-func walk(current_animation):
-	if(current_animation == "Jump"):
-		jumping = false
-		anim_player.play("sleep_walk")
+func resetGravity():
+	gravity = -2
+	jumping = false
+	
+func walk():
+	anim_player.play("sleep_walk")

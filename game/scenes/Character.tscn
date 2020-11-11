@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Character/character.glb" type="PackedScene" id=1]
+[ext_resource path="res://src/AnimationControler.gd" type="Script" id=2]
 [ext_resource path="res://src/Robot/CameraFollow.gd" type="Script" id=7]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
@@ -23,6 +24,7 @@ transitions = [ "sleep_walk", "Jump", SubResource( 3 ), "Jump", "sleep_walk", Su
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [node name="character" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 5 )
