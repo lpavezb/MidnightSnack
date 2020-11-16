@@ -39,3 +39,6 @@ func press():
 	else:
 		$ButtonPressed.show()
 		emit_signal("pressed")
+		
+func unpress():
+	$ButtonPressed.hide()
