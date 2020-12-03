@@ -5,7 +5,7 @@ extends StaticBody2D
 # var a = 2
 # var b = "text"
 signal pressed
-
+var jumping = false
 var can_press = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +30,7 @@ func _physics_process(_delta):
 		$Button.modulate = Color(1, 1, 1, 1)
 		$ButtonPressed.modulate = Color(1, 1, 1, 1)
 		
-	if Input.is_action_just_pressed("action") and can_press:
+	if Input.is_action_just_pressed("action") and can_press and not jumping:
 		press()
 		
 func press():
@@ -42,3 +42,6 @@ func press():
 		
 func unpress():
 	$ButtonPressed.hide()
+	
+func set_jumping(value):
+	jumping = value

@@ -65,6 +65,7 @@ func turn_right():
 func jump():
 	gravity = 0
 	jumping = true
+	ButtonJump.set_jumping(jumping)
 	anim_player.play("Jump")
 	
 func crouch():
@@ -75,5 +76,8 @@ func resetGravity():
 	gravity = -2
 	jumping = false
 	
-func walk():
+func walk(_arg):
 	anim_player.play("sleep_walk")
+	resetGravity()
+	ButtonJump.set_jumping(jumping)
+	ButtonJump.unpress()
