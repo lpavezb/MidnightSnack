@@ -5,7 +5,6 @@ var ground_size = Vector2(5, 10)
 var next_chunk_coord = Vector3(-10, -2, 0)
 
 onready var map = $World/Ground
-onready var robot = $Robot
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

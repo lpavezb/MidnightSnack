@@ -6,13 +6,20 @@ var character
 onready var ButtonLeft = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonLeft")
 onready var ButtonRight = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonRight")
 onready var ButtonJump = get_node("/root/Game/Escena2D/Contenedor/Nave/JumpButton")
+onready var CrouchButton = get_node("/root/Game/Escena2D/Contenedor/Nave/CrouchButton")
 
 onready var anim_player = $character/AnimationPlayer
+
+var CSHeight
+var CSTranslation
 var jumping = false
 var crouching = false
 var gravity = -2
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	CSHeight = $CollisionShape.shape.height
+	CSTranslation = $CollisionShape.translation
+	
 	ButtonLeft.connect("pressed",self,"turn_left")
 	ButtonRight.connect("pressed",self,"turn_right")
 	ButtonLeft.connect("unpressed",self,"turn_right")
@@ -20,7 +27,8 @@ func _ready():
 	
 	
 	ButtonJump.connect("pressed",self,"jump")
-	
+	CrouchButton.connect("pressed",self,"crouch")
+	CrouchButton.connect("unpressed",self,"get_up")	
 	
 	
 	anim_player.get_animation("sleep_walk").set_loop(true)
@@ -63,14 +71,20 @@ func turn_right():
 	rotation_degrees.y -=2
 
 func jump():
-	gravity = 0
-	jumping = true
-	ButtonJump.set_jumping(jumping)
-	anim_player.play("Jump")
+	if not crouching:
+		gravity = 0
+		jumping = true
+		ButtonJump.set_jumping(jumping)
+		anim_player.play("Jump")
 	
 func crouch():
-	crouching = true
-	anim_player.play("crouch_walk")
+	if not jumping:
+		crouching = true
+		anim_player.play("crouch_walk")
+		$CollisionShape.translation.y = 0.2
+		$CollisionShape.shape.height = 0.5
+		print("Collision translation: " + str($CollisionShape.translation.y))
+		print("Collision height: " + str($CollisionShape.shape.height))
 	
 func resetGravity():
 	gravity = -2
@@ -81,3 +95,12 @@ func walk(_arg):
 	resetGravity()
 	ButtonJump.set_jumping(jumping)
 	ButtonJump.unpress()
+
+func get_up():
+	if not jumping:
+		crouching = false
+		anim_player.play("sleep_walk")
+		$CollisionShape.translation.y = CSTranslation.y
+		$CollisionShape.shape.height = CSHeight
+		print("Collision translation: " + str($CollisionShape.translation.y))
+		print("Collision height: " + str($CollisionShape.shape.height))

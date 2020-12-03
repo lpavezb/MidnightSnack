@@ -780,10 +780,10 @@ __meta__ = {
 anims/Window = SubResource( 52 )
 
 [node name="ButtonLeft" parent="." instance=ExtResource( 3 )]
-position = Vector2( 32, 100 )
+position = Vector2( 32, 96 )
 
 [node name="ButtonRight" parent="." instance=ExtResource( 3 )]
-position = Vector2( 224, 100 )
+position = Vector2( 224, 96 )
 
 [node name="JumpButton" parent="." instance=ExtResource( 8 )]
 position = Vector2( 88, 64 )
@@ -793,3 +793,6 @@ position = Vector2( 120, 64 )
 
 [node name="GravityButton" parent="." instance=ExtResource( 10 )]
 position = Vector2( 152, 64 )
+
+[node name="CrouchButton" parent="." instance=ExtResource( 3 )]
+position = Vector2( 168, 136 )
