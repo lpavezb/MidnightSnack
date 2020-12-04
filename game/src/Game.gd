@@ -9,7 +9,7 @@ var audio
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	audio = $AudioStreamPlayer
-	$AudioStreamPlayer.play(110)
+	$AudioStreamPlayer.play()
 	audio.connect("finished", self, "on_finished")
 
 func on_finished():
