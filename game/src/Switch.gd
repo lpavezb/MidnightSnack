@@ -23,7 +23,7 @@ func on_body_exited(body: Node):
 #func _process(delta):
 #	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if can_press:
 		$SwitchUp.modulate = Color(133/255, 1, 0, 1)
 		$SwitchCenter.modulate = Color(133/255, 1, 0, 1)

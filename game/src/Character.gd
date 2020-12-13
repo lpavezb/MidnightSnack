@@ -8,6 +8,9 @@ onready var ButtonRight = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonRi
 onready var ButtonJump = get_node("/root/Game/Escena2D/Contenedor/Nave/JumpButton")
 onready var CrouchButton = get_node("/root/Game/Escena2D/Contenedor/Nave/CrouchButton")
 
+onready var checkpoints = get_node("/root/Game/World/checkpoints")
+var respawn_point = Vector3(48, 3, -42)
+
 onready var anim_player = $character/AnimationPlayer
 
 var CSHeight
@@ -30,13 +33,17 @@ func _ready():
 	CrouchButton.connect("pressed",self,"crouch")
 	CrouchButton.connect("unpressed",self,"get_up")	
 	
+	self.connect("body_entered", self, "fall")
 	
 	anim_player.get_animation("sleep_walk").set_loop(true)
 	anim_player.get_animation("crouch_walk").set_loop(true)
 	character = get_node("./character/Armature/Skeleton")
 	anim_player.play("sleep_walk")
 	
-	anim_player.connect("animation_finished", self, "walk")
+	for checkpoint in checkpoints.get_children():
+		checkpoint.connect("body_entered", self, "save_checkpoint")
+	
+	# anim_player.connect("animation_finished", self, "walk")
 	# Replace with function body.
 
 
@@ -54,12 +61,20 @@ func _physics_process(_delta):
 	linear_vel = lerp(linear_vel,target_vel*10,0.3)
 	linear_vel = move_and_slide(linear_vel, Vector3(0, 1, 0))
 	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if("MesaMadera" in collision.collider.name):
+			fall(collision.collider.name)
+	
 	if is_moving:
 		var angle = atan2(linear_vel.x, linear_vel.z)
 		
 		var char_rot = character.get_rotation()
 		char_rot.y = angle
 		character.set_rotation(char_rot)
+		
+	if Input.is_action_just_pressed("respawn"):
+		respawn()
 	
 func turn_left():
 	dir+=1
@@ -90,7 +105,7 @@ func resetGravity():
 	gravity = -2
 	jumping = false
 	
-func walk(_arg):
+func walk():
 	anim_player.play("sleep_walk")
 	resetGravity()
 	ButtonJump.set_jumping(jumping)
@@ -104,3 +119,15 @@ func get_up():
 		$CollisionShape.shape.height = CSHeight
 		print("Collision translation: " + str($CollisionShape.translation.y))
 		print("Collision height: " + str($CollisionShape.shape.height))
+
+func fall(_body):
+	print("you fell by ", _body)
+	respawn()
+	
+func save_checkpoint(body):
+	respawn_point = body.transform.origin
+	
+	
+func respawn():
+	self.transform.origin = respawn_point
+

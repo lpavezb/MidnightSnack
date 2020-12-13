@@ -7,7 +7,7 @@ var is_pressed = false
 func _ready():
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if len(get_overlapping_areas()) > 0:
 		if not is_pressed:
 			emit_signal("pressed")
