@@ -136,7 +136,8 @@ func fall(body):
 	
 	
 func save_checkpoint(body):
-	respawn_point = body.transform.origin
+	if(body.name == "Character"):
+		respawn_point = body.transform.origin
 	
 	
 func respawn(_var):

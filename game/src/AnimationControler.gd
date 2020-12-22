@@ -19,9 +19,7 @@ func walk():
 
 func unpressButton():
 	ButtonJump.unpress()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func respawn():
+	print("alksdj")
 	character.respawn(0)

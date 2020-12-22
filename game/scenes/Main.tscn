@@ -11,18 +11,18 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 18.6017, 1, 1 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 108.792, 1, 795.828 )
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=3]
 radius = 0.3
 height = 1.17
 
-[sub_resource type="CapsuleShape" id=5]
+[sub_resource type="CapsuleShape" id=4]
 radius = 0.248168
 height = 0.977426
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 8
 border_width_top = 8
@@ -100,7 +100,7 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.4581, -10.7532, 483.666 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/fallDetector"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Character" type="KinematicBody" parent="."]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 48, 3, -42 )
@@ -110,14 +110,14 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Character"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.886, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="collisionDetector" type="Area" parent="Character"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.940501, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Character/collisionDetector"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166504, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Escena2D" type="CanvasLayer" parent="."]
 layer = -1
@@ -128,7 +128,7 @@ anchor_bottom = 1.0
 margin_top = -320.0
 margin_right = 512.0
 margin_bottom = 1.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
