@@ -126,10 +126,19 @@ margin_bottom = 1.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="Nave" parent="Escena2D/Contenedor" instance=ExtResource( 4 )]
+
+[node name="UI" type="MarginContainer" parent="Escena2D"]
+margin_left = -570.0
+margin_right = 40.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Nivel1" parent="." instance=ExtResource( 1 )]
 
