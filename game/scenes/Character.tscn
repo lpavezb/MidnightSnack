@@ -36,5 +36,5 @@ parameters/playback = SubResource( 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.571, 0 )
 
 [node name="Camera" type="Camera" parent="Target" index="0"]
-transform = Transform( -1, -1.77466e-07, 2.73274e-07, 0, 0.838671, 0.544639, -3.25841e-07, 0.544639, -0.838671, 0, 1.1, -2.335 )
+transform = Transform( -1, 1.52973e-07, -2.87701e-07, 0, 0.882948, 0.469472, 3.25841e-07, 0.469472, -0.882948, 0, 0.6, -2.5 )
 script = ExtResource( 7 )
