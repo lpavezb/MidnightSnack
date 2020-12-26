@@ -45,7 +45,7 @@ func _ready():
 		checkpoint.connect("body_entered", self, "save_checkpoint")
 	fall_detector.connect("body_entered", self, "respawn")
 	collision_detector.connect("body_entered", self, "fall")
-	# anim_player.connect("animation_finished", self, "walk")
+	anim_player.connect("animation_finished", self, "walk")
 	# Replace with function body.
 
 
@@ -89,7 +89,7 @@ func turn_right():
 	rotation_degrees.y -=2
 
 func jump():
-	if not crouching:
+	if not (crouching or fallen):
 		gravity = 0
 		jumping = true
 		ButtonJump.set_jumping(jumping)
@@ -111,11 +111,12 @@ func resetGravity():
 	gravity = -2
 	jumping = false
 	
-func walk():
-	anim_player.play("sleep_walk")
-	resetGravity()
-	ButtonJump.set_jumping(jumping)
-	ButtonJump.unpress()
+func walk(_arg):
+	if not fallen:
+		anim_player.play("sleep_walk")
+		resetGravity()
+		ButtonJump.set_jumping(jumping)
+		ButtonJump.unpress()
 
 func get_up():
 	if not jumping:
