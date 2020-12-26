@@ -1,7 +1,7 @@
 [gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://resources/Tileset_Completo_2.png" type="Texture" id=1]
-[ext_resource path="res://resources/animacion_ventana_transp.png" type="Texture" id=2]
+[ext_resource path="res://resources/animacion_ventana.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Astronaut.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/Tileset Completo 3.png" type="Texture" id=5]
@@ -769,16 +769,16 @@ format = 1
 tile_data = PoolIntArray( 0, 3, 0, 196608, 10, 0, 196611, 13, 0, 196612, 18, 0, 196614, 30, 0, 196616, 34, 0, 196618, 18, 0, 196619, 14, 0, 196620, 12, 0, 196621, 13, 0, 196622, 11, 0, 327680, 9, 0, 327695, 8, 0, 524288, 3, 0, 589824, 3, 0, 786432, 3, 0, 851968, 3, 0, 917504, 3, 0, 983040, 3, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.658824 )
 texture = ExtResource( 2 )
 centered = false
 vframes = 4
-frame = 3
+frame = 2
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+pause_mode = 2
 method_call_mode = 1
 anims/Window = SubResource( 52 )
 

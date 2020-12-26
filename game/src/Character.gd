@@ -21,6 +21,8 @@ var jumping = false
 var crouching = false
 var fallen = false
 var gravity = -2
+var sleepiness=100
+signal sleepiness_bar
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	CSHeight = $CollisionShape.shape.height
@@ -132,6 +134,8 @@ func get_up():
 func fall(body):
 	if body.name != "Character":
 		fallen = true
+		sleepiness=sleepiness-20
+		emit_signal("sleepiness_bar",sleepiness)
 		print("you fell by ", body.name)
 		anim_player.play("fall")
 	

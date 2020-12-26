@@ -21,5 +21,4 @@ func unpressButton():
 	ButtonJump.unpress()
 
 func respawn():
-	print("alksdj")
 	character.respawn(0)
