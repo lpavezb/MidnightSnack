@@ -12,7 +12,7 @@ signal box_near
 
 func _ready():
 	add_child(box)
-	box.set_position(Vector2(120,110))
+	box.set_position(Vector2(50,130))
 	Astronaut.connect("drop_box", self, "appear_box")
 	Astronaut.connect("pick_box", self, "disappear_box")
 	Astronaut.connect("position",self,"position")

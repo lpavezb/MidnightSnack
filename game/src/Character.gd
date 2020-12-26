@@ -45,10 +45,9 @@ func _ready():
 	
 	for checkpoint in checkpoints.get_children():
 		checkpoint.connect("body_entered", self, "save_checkpoint")
-	fall_detector.connect("body_entered", self, "respawn")
+	fall_detector.connect("body_entered", self, "drop")
 	collision_detector.connect("body_entered", self, "fall")
 	anim_player.connect("animation_finished", self, "walk")
-	# Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -134,18 +133,27 @@ func get_up():
 func fall(body):
 	if body.name != "Character":
 		fallen = true
-		sleepiness=sleepiness-20
+		sleepiness=sleepiness-10
 		emit_signal("sleepiness_bar",sleepiness)
 		print("you fell by ", body.name)
 		anim_player.play("fall")
-	
+
+func drop(_var):
+	sleepiness=sleepiness-20
+	emit_signal("sleepiness_bar",sleepiness)
+	self.transform.origin = respawn_point
+	fallen = false
+	anim_player.play("sleep_walk")
 	
 func save_checkpoint(body):
 	if(body.name == "Character"):
 		respawn_point = body.transform.origin
 	
-	
 func respawn(_var):
+	if sleepiness==0:
+		respawn_point = Vector3(48, 3, -42)
+		sleepiness=100
+		emit_signal("sleepiness_bar",sleepiness)
 	self.transform.origin = respawn_point
 	fallen = false
 	anim_player.play("sleep_walk")
