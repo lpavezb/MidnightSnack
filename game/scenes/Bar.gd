@@ -3,7 +3,6 @@ extends HBoxContainer
 onready var sleepiness_bar = get_node("/root/Game/Character")
 
 func change_sleepiness(sleepiness):
-	print(sleepiness)
 	$TextureProgress.value=sleepiness
 
 
