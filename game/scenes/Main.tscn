@@ -11,7 +11,7 @@
 [ext_resource path="res://Interface.gd" type="Script" id=9]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 18.6017, 1, 1 )
+extents = Vector3( 24.6506, 1, 1 )
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 108.792, 1, 795.828 )
@@ -43,49 +43,50 @@ __meta__ = {
 [node name="checkpoints" type="Spatial" parent="World"]
 
 [node name="checkpoin1" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5092, 4.29455, -26.9722 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5092, 3.29455, -26.9722 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin1"]
 shape = SubResource( 1 )
 
 [node name="checkpoin2" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5525, 4.29455, 12.8937 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5525, 3.29455, 12.8937 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin2"]
 shape = SubResource( 1 )
 
 [node name="checkpoin3" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 4.29455, 63.0557 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 3.29455, 63.0557 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin3"]
 shape = SubResource( 1 )
 
 [node name="checkpoin4" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 4.29455, 113.535 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 3.29455, 113.535 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin4"]
 shape = SubResource( 1 )
 
 [node name="checkpoin5" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 4.29455, 196.071 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 3.29455, 196.071 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25358, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="checkpoin6" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4505, 4.29455, 368.641 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2937, 3.29455, 368.641 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin6"]
 shape = SubResource( 1 )
 
 [node name="checkpoin7" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5588, 4.29455, 546.314 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7367, 3.29455, 546.314 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin7"]
 shape = SubResource( 1 )
 
 [node name="checkpoin8" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5307, 4.29455, 625.519 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5307, 3.29455, 625.519 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin8"]
 shape = SubResource( 1 )

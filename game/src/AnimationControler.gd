@@ -15,7 +15,7 @@ func resetGravity():
 	character.resetGravity()
 
 func walk():
-	character.walk()
+	character.walk(0)
 
 func unpressButton():
 	ButtonJump.unpress()

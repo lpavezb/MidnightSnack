@@ -44,7 +44,7 @@ func _ready():
 	anim_player.play("sleep_walk")
 	
 	for checkpoint in checkpoints.get_children():
-		checkpoint.connect("body_entered", self, "save_checkpoint")
+		checkpoint.connect("body_entered", self, "save_checkpoint", [checkpoint.transform.origin])
 	fall_detector.connect("body_entered", self, "drop")
 	collision_detector.connect("body_entered", self, "fall")
 	anim_player.connect("animation_finished", self, "walk")
@@ -145,9 +145,9 @@ func drop(_var):
 	fallen = false
 	anim_player.play("sleep_walk")
 	
-func save_checkpoint(body):
+func save_checkpoint(body, point):
 	if(body.name == "Character"):
-		respawn_point = body.transform.origin
+		respawn_point = point#body.transform.origin
 	
 func respawn(_var):
 	if sleepiness==0:
