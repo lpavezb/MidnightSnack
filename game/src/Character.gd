@@ -7,6 +7,7 @@ onready var ButtonLeft = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonLef
 onready var ButtonRight = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonRight")
 onready var ButtonJump = get_node("/root/Game/Escena2D/Contenedor/Nave/JumpButton")
 onready var CrouchButton = get_node("/root/Game/Escena2D/Contenedor/Nave/CrouchButton")
+onready var Switch = get_node("/root/Game/Escena2D/Contenedor/Nave/Switch")
 
 onready var checkpoints = get_node("/root/Game/World/checkpoints")
 onready var fall_detector = get_node("/root/Game/World/fallDetector")
@@ -22,6 +23,7 @@ var crouching = false
 var fallen = false
 var gravity = -2
 var sleepiness=100
+var velocity_multiplier = 0.9
 signal sleepiness_bar
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,7 +39,8 @@ func _ready():
 	ButtonJump.connect("pressed",self,"jump")
 	CrouchButton.connect("pressed",self,"crouch")
 	CrouchButton.connect("unpressed",self,"get_up")	
-		
+	Switch.connect("new_state", self, "adjust_velocity")
+	
 	anim_player.get_animation("sleep_walk").set_loop(true)
 	anim_player.get_animation("crouch_walk").set_loop(true)
 	character = get_node("./character/Armature/Skeleton")
@@ -56,12 +59,21 @@ func _ready():
 var linear_vel = Vector3()
 var speed = 0.5
 
+func adjust_velocity(state):
+	# {0: up, 1: center, 2: down}
+	if state == 0:
+		velocity_multiplier = 1.1
+	elif state == 1:
+		velocity_multiplier = 1
+	else:
+		velocity_multiplier = 0.9
+
 func _physics_process(_delta):
 		
 	var target_vel = Vector3(dir,gravity,1) * speed
 	var is_moving = target_vel.x != 0 or target_vel.z != 0
 	
-	linear_vel = lerp(linear_vel,target_vel*10,0.3)
+	linear_vel = lerp(linear_vel,target_vel*10,0.3) * velocity_multiplier
 	if not fallen:
 		linear_vel = move_and_slide(linear_vel, Vector3(0, 1, 0))
 	

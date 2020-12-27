@@ -7,6 +7,7 @@ extends StaticBody2D
 var state = 2 # {0: up, 1: center, 2: down}
 var dir = 1 # {0: top-down, 1: down-top}
 var can_press = false
+signal new_state
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Piso.connect("body_entered", self, "on_body_entered")
@@ -54,3 +55,4 @@ func press():
 			$SwitchDown.show()
 			state = 2
 			dir = 1
+	emit_signal("new_state", state)
