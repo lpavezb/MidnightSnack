@@ -26,14 +26,14 @@ height = 1.17
 radius = 0.248168
 height = 0.977426
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=5]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.6, 0.6, 0.6, 0.196078 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.6, 0.6, 0.6, 0.196078 )
 
 [node name="Game" type="Spatial"]
@@ -174,8 +174,8 @@ margin_right = 512.0
 margin_bottom = 141.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 icon = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -188,7 +188,7 @@ margin_bottom = 372.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 7 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
 icon = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
