@@ -77,10 +77,6 @@ func _physics_process(_delta):
 	if not fallen:
 		linear_vel = move_and_slide(linear_vel, Vector3(0, 1, 0))
 	
-	#for i in get_slide_count():
-	#	var collision = get_slide_collision(i)
-	#	if("MesaMadera" in collision.collider.name):
-	#		fall(collision.collider.name)
 	
 	if is_moving:
 		var angle = atan2(linear_vel.x, linear_vel.z)
@@ -92,6 +88,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("respawn"):
 		respawn(0)
 	
+
 func turn_left():
 	dir+=1
 	rotation_degrees.y +=2

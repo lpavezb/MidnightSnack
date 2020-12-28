@@ -7,12 +7,19 @@
 [ext_resource path="res://resources/menu/credits.png" type="Texture" id=5]
 [ext_resource path="res://resources/menu/new_game.png" type="Texture" id=6]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=1]
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.207843, 0.207843, 0.207843, 1 )
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.207843, 0.207843, 0.207843, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
 
 [sub_resource type="StyleBoxFlat" id=7]
 
@@ -21,15 +28,8 @@ bg_color = Color( 0.207843, 0.207843, 0.207843, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=9]
 
-[sub_resource type="StyleBoxFlat" id=10]
-
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.207843, 0.207843, 0.207843, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=12]
-
 [node name="Main menu" type="Node"]
-script = ExtResource( 3 )
+pause_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -54,13 +54,13 @@ custom_constants/separation = 69
 split_offset = 258
 dragger_visibility = 1
 
-[node name="Menu izquierdo" type="VSplitContainer" parent="MarginContainer/HSplitContainer"]
+[node name="Menu_izquierdo" type="VSplitContainer" parent="MarginContainer/HSplitContainer"]
 margin_right = 770.0
 margin_bottom = 920.0
 split_offset = -139
 dragger_visibility = 1
 
-[node name="Title" type="TextureRect" parent="MarginContainer/HSplitContainer/Menu izquierdo"]
+[node name="Title" type="TextureRect" parent="MarginContainer/HSplitContainer/Menu_izquierdo"]
 margin_right = 770.0
 margin_bottom = 315.0
 rect_min_size = Vector2( 512, 50 )
@@ -73,7 +73,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Botones" type="VBoxContainer" parent="MarginContainer/HSplitContainer/Menu izquierdo"]
+[node name="Botones" type="VBoxContainer" parent="MarginContainer/HSplitContainer/Menu_izquierdo"]
 margin_top = 327.0
 margin_right = 770.0
 margin_bottom = 920.0
@@ -81,39 +81,40 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 34
 alignment = 1
+script = ExtResource( 3 )
 
-[node name="New game" type="Button" parent="MarginContainer/HSplitContainer/Menu izquierdo/Botones"]
+[node name="New game" type="Button" parent="MarginContainer/HSplitContainer/Menu_izquierdo/Botones"]
 margin_right = 770.0
 margin_bottom = 175.0
 focus_neighbour_bottom = NodePath("../Credits")
 focus_next = NodePath("../Credits")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/normal = SubResource( 4 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 icon = ExtResource( 6 )
 expand_icon = true
 
-[node name="Credits" type="Button" parent="MarginContainer/HSplitContainer/Menu izquierdo/Botones"]
+[node name="Credits" type="Button" parent="MarginContainer/HSplitContainer/Menu_izquierdo/Botones"]
 margin_top = 209.0
 margin_right = 770.0
 margin_bottom = 384.0
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 icon = ExtResource( 5 )
 expand_icon = true
 
-[node name="Quit" type="Button" parent="MarginContainer/HSplitContainer/Menu izquierdo/Botones"]
+[node name="Quit" type="Button" parent="MarginContainer/HSplitContainer/Menu_izquierdo/Botones"]
 margin_top = 418.0
 margin_right = 770.0
 margin_bottom = 593.0
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 icon = ExtResource( 4 )
 expand_icon = true
 
@@ -121,17 +122,17 @@ expand_icon = true
 margin_left = 839.0
 margin_right = 1680.0
 margin_bottom = 920.0
-split_offset = 92
+split_offset = 158
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HSplitContainer/VSplitContainer"]
+[node name="Space" type="TextureRect" parent="MarginContainer/HSplitContainer/VSplitContainer"]
 margin_right = 841.0
-margin_bottom = 92.0
+margin_bottom = 158.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HSplitContainer/VSplitContainer"]
-margin_top = 104.0
+[node name="Logo" type="TextureRect" parent="MarginContainer/HSplitContainer/VSplitContainer"]
+margin_top = 170.0
 margin_right = 841.0
 margin_bottom = 920.0
 size_flags_horizontal = 3
@@ -139,3 +140,5 @@ size_flags_vertical = 3
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
+[connection signal="pressed" from="MarginContainer/HSplitContainer/Menu_izquierdo/Botones/New game" to="MarginContainer/HSplitContainer/Menu_izquierdo/Botones" method="_on_New_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/Menu_izquierdo/Botones/Quit" to="MarginContainer/HSplitContainer/Menu_izquierdo/Botones" method="_on_Quit_pressed"]
