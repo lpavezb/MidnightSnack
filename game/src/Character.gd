@@ -14,6 +14,7 @@ onready var fall_detector = get_node("/root/Game/World/fallDetector")
 onready var collision_detector = $collisionDetector
 var respawn_point = Vector3(48, 3, -42)
 
+onready var respawn_msg = get_node("/root/Game/Interface/respawn_msg")
 onready var anim_player = $character/AnimationPlayer
 
 var CSHeight
@@ -27,6 +28,7 @@ var velocity_multiplier = 0.9
 signal sleepiness_bar
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(sleepiness)
 	CSHeight = $CollisionShape.shape.height
 	CSTranslation = $CollisionShape.translation
 	
@@ -55,7 +57,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+#	print(sleepiness)
+
 var linear_vel = Vector3()
 var speed = 0.5
 
@@ -162,14 +165,17 @@ func collision(body):
 			emit_signal("sleepiness_bar",sleepiness)
 			print("you fell by ", body.name)
 			anim_player.play("fall")
+			respawn_msg.visible = true
+
 	
 
-func drop(_var):
-	sleepiness=sleepiness-20
-	emit_signal("sleepiness_bar",sleepiness)
-	self.transform.origin = respawn_point
-	fallen = false
-	anim_player.play("sleep_walk")
+func drop(body):
+	if body.name == "Character":
+		sleepiness=sleepiness-20
+		emit_signal("sleepiness_bar",sleepiness)
+		self.transform.origin = respawn_point
+		fallen = false
+		anim_player.play("sleep_walk")
 	
 func save_checkpoint(body, point):
 	if(body.name == "Character"):
@@ -183,4 +189,5 @@ func respawn(_var):
 	self.transform.origin = respawn_point
 	fallen = false
 	anim_player.play("sleep_walk")
+	respawn_msg.visible = false
 
