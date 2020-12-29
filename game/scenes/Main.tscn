@@ -60,20 +60,14 @@ __meta__ = {
 
 [node name="checkpoints" type="Spatial" parent="World"]
 
-[node name="checkpoin1" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5092, 3.29455, -26.9722 )
-
-[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin1"]
-shape = SubResource( 1 )
-
 [node name="checkpoin2" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5525, 3.29455, 12.8937 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5525, 3.29455, 13.9901 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin2"]
 shape = SubResource( 1 )
 
 [node name="checkpoin3" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 3.29455, 63.0557 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 3.29455, 63.6581 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin3"]
 shape = SubResource( 1 )
@@ -85,7 +79,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 3.29455, 113.535 )
 shape = SubResource( 1 )
 
 [node name="checkpoin5" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 3.29455, 196.071 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4236, 3.29455, 196.707 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25358, 0, 0 )
@@ -116,9 +110,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5307, 3.29455, 706.799 )
 shape = SubResource( 1 )
 
 [node name="checkpoin10" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5307, 3.29455, 812.566 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5307, 3.29455, 858.214 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin10"]
+shape = SubResource( 1 )
+
+[node name="checkpoin11" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.33, 3.29455, 941.438 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin11"]
 shape = SubResource( 1 )
 
 [node name="fallDetector" type="Area" parent="World"]
