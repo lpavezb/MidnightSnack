@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=25 format=2]
-=======
-[gd_scene load_steps=29 format=2]
->>>>>>> e1872e6d0c80a115433e07e36bbf04766ad410a6
 
 [ext_resource path="res://scenes/Nivel1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/CreateGroundMeshLib.tres" type="MeshLibrary" id=2]
