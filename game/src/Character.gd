@@ -49,7 +49,7 @@ func _ready():
 	for checkpoint in checkpoints.get_children():
 		checkpoint.connect("body_entered", self, "save_checkpoint", [checkpoint.transform.origin])
 	fall_detector.connect("body_entered", self, "drop")
-	collision_detector.connect("body_entered", self, "fall")
+	collision_detector.connect("body_entered", self, "collision")
 	anim_player.connect("animation_finished", self, "walk")
 
 
@@ -139,13 +139,22 @@ func get_up():
 		$collisionDetector/CollisionShape.translation.z = 0
 		$collisionDetector/CollisionShape.shape.height = 1
 
-func fall(body):
-	if body.name != "Character":
-		fallen = true
-		sleepiness=sleepiness-10
-		emit_signal("sleepiness_bar",sleepiness)
-		print("you fell by ", body.name)
-		anim_player.play("fall")
+func collision(body):
+	if body.name == "gorro" and sleepiness<100:
+		if sleepiness<60:
+			sleepiness+=40
+			emit_signal("sleepiness_bar",sleepiness)
+		else:
+			sleepiness=100
+			emit_signal("sleepiness_bar",sleepiness)
+	else:
+		if body.name != "Character" and body.name != "gorro":
+			fallen = true
+			sleepiness=sleepiness-10
+			emit_signal("sleepiness_bar",sleepiness)
+			print("you fell by ", body.name)
+			anim_player.play("fall")
+	
 
 func drop(_var):
 	sleepiness=sleepiness-20
