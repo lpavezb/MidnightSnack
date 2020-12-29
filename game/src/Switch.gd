@@ -10,14 +10,14 @@ var can_press = false
 signal new_state
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Piso.connect("body_entered", self, "on_body_entered")
-	$Piso.connect("body_exited", self, "on_body_exited")
+	var _a = $Piso.connect("body_entered", self, "on_body_entered")
+	var _b = $Piso.connect("body_exited", self, "on_body_exited")
 	$SwitchDown.hide()
 
-func on_body_entered(body: Node):
+func on_body_entered(_body: Node):
 	can_press = true
 
-func on_body_exited(body: Node):
+func on_body_exited(_body: Node):
 	can_press = false
 
 

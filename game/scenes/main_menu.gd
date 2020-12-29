@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_New_game_pressed():
-	get_tree().change_scene("res://scenes/Main.tscn")
+	var _a = get_tree().change_scene("res://scenes/Main.tscn")
 	
 
 func _on_Quit_pressed():

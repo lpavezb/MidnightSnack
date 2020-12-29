@@ -19,8 +19,8 @@ var box_near
 var look
 
 func _ready():
-	$Timer.connect("timeout", self, "_on_Timer_timeout")
-	Nave.connect("box_near", self, "pick_box")
+	var _a = $Timer.connect("timeout", self, "_on_Timer_timeout")
+	var _b = Nave.connect("box_near", self, "pick_box")
 	
 
 func _on_Timer_timeout():
@@ -34,7 +34,7 @@ func pick_box(near):
 
 func _physics_process(_delta):
 	emit_signal("position",$Position2D.position)
-	var target_vel = Vector2(
+	target_vel = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 
 		Input.get_action_strength("down") - Input.get_action_strength("up"))
 	

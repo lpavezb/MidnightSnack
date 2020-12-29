@@ -140,7 +140,7 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7388, 4.77044, 221.196 )
 
 [node name="gorro2" parent="World/Spatial" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8818, 5.4754, 572.179 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0668, 7.42941, 572.179 )
 
 [node name="gorro3" parent="World/Spatial" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7906, 6.22939, 962.248 )
@@ -264,13 +264,6 @@ visible = false
 margin_right = 12.0
 margin_bottom = 20.0
 
-[node name="Tú" type="TextureRect" parent="Interface"]
-visible = false
-margin_right = 8013.0
-margin_bottom = 4520.0
-rect_scale = Vector2( 0.239694, 0.239064 )
-texture = ExtResource( 17 )
-
 [node name="Izqder" type="TextureRect" parent="Interface"]
 visible = false
 margin_right = 40.0
@@ -291,6 +284,13 @@ margin_right = 40.0
 margin_bottom = 40.0
 rect_scale = Vector2( 0.23963, 0.238982 )
 texture = ExtResource( 19 )
+
+[node name="Tú" type="TextureRect" parent="Interface"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.239694, 0.239064 )
+texture = ExtResource( 17 )
 
 [node name="Nivel2" parent="." instance=ExtResource( 12 )]
 transform = Transform( -6.51683e-07, 0, 4, 0, 4, 0, -4, 0, -6.51683e-07, -144.538, 0, 0 )

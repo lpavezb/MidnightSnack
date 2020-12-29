@@ -38,5 +38,5 @@ func _on_continue_pressed():
 	
 func _on_quit_pressed():
 	get_tree().paused = !get_tree().paused
-	get_tree().change_scene("res://scenes/main_menu.tscn")
+	var _a = get_tree().change_scene("res://scenes/main_menu.tscn")
 	
