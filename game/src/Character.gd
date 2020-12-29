@@ -89,6 +89,14 @@ func _physics_process(_delta):
 		respawn(0)
 	
 
+func recover():
+	if sleepiness<60:
+		sleepiness+=40
+		emit_signal("sleepiness_bar",sleepiness)
+	else:
+		sleepiness=100
+		emit_signal("sleepiness_bar",sleepiness)
+	
 func turn_left():
 	dir+=1
 	rotation_degrees.y +=2
