@@ -1150,7 +1150,7 @@ shape = SubResource( 1 )
 [node name="icon" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 10
-frame = 8
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/BackButton = SubResource( 2 )
@@ -1187,11 +1187,13 @@ parameters/RunBox/blend_position = Vector2( 0, 0 )
 wait_time = 1.2
 
 [node name="Position2D" type="Position2D" parent="."]
+visible = false
 position = Vector2( -9.5, 6.5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2( 0, 11.6 )
 shape = SubResource( 54 )
