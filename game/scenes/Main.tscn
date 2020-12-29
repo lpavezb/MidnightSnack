@@ -140,7 +140,7 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7388, 4.77044, 221.196 )
 
 [node name="gorro2" parent="World/Spatial" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0668, 7.42941, 572.179 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8818, 5.4754, 572.179 )
 
 [node name="gorro3" parent="World/Spatial" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7906, 6.22939, 962.248 )
