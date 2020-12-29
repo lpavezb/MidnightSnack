@@ -76,7 +76,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 2 )
 
 [node name="gorro" parent="." index="0"]
-transform = Transform( 2, 0, 1.30337e-06, 0, 2, 0, -1.30337e-06, 0, 2, 0, -3, 0 )
+transform = Transform( -1.99999, 0, -0.0054385, 0, 2, 0, 0.0054385, 0, -1.99999, 0, -3.99913, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 method_call_mode = 1
