@@ -18,7 +18,9 @@ func _ready():
 	Astronaut.connect("position",self,"position")
 	$GravityButton.connect("pressed", self, "on_gravity_pressed")
 	$GravityButton.connect("unpressed", self, "on_gravity_unpressed")
-
+	var anim = $Sprite/AnimationPlayer.get_animation("Window")
+	anim.set_loop(true)
+	$Sprite/AnimationPlayer.play("Window")
 
 
 func _process(_delta):
