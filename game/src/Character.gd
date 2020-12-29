@@ -14,6 +14,7 @@ onready var fall_detector = get_node("/root/Game/World/fallDetector")
 onready var collision_detector = $collisionDetector
 var respawn_point = Vector3(48, 3, -42)
 
+onready var respawn_msg = get_node("/root/Game/Interface/respawn_msg")
 onready var anim_player = $character/AnimationPlayer
 
 var CSHeight
@@ -150,12 +151,21 @@ func get_up():
 		$collisionDetector/CollisionShape.shape.height = 1
 
 func collision(body):
-	if body.name != "Character" and body.name != "gorro":
-		fallen = true
-		sleepiness=sleepiness-10
-		emit_signal("sleepiness_bar",sleepiness)
-		print("you fell by ", body.name)
-		anim_player.play("fall")
+	if body.name == "gorro" and sleepiness<100:
+		if sleepiness<60:
+			sleepiness+=40
+			emit_signal("sleepiness_bar",sleepiness)
+		else:
+			sleepiness=100
+			emit_signal("sleepiness_bar",sleepiness)
+	else:
+		if body.name != "Character" and body.name != "gorro":
+			fallen = true
+			sleepiness=sleepiness-10
+			emit_signal("sleepiness_bar",sleepiness)
+			print("you fell by ", body.name)
+			anim_player.play("fall")
+			respawn_msg.visible = true
 	
 
 func drop(body):
@@ -165,7 +175,6 @@ func drop(body):
 		self.transform.origin = respawn_point
 		fallen = false
 		walk("sdf")
-		anim_player.play("sleep_walk")
 	
 func save_checkpoint(body, point):
 	if(body.name == "Character"):
@@ -178,5 +187,6 @@ func respawn(_var):
 		emit_signal("sleepiness_bar",sleepiness)
 	self.transform.origin = respawn_point
 	fallen = false
-	walk("sdf")
+	respawn_msg.visible = false
+	walk(0)
 
