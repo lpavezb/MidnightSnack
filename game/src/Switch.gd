@@ -4,7 +4,7 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var state = 2 # {0: up, 1: center, 2: down}
+var state = 1 # {0: up, 1: center, 2: down}
 var dir = 1 # {0: top-down, 1: down-top}
 var can_press = false
 signal new_state
@@ -12,6 +12,7 @@ signal new_state
 func _ready():
 	$Piso.connect("body_entered", self, "on_body_entered")
 	$Piso.connect("body_exited", self, "on_body_exited")
+	$SwitchDown.hide()
 
 func on_body_entered(body: Node):
 	can_press = true

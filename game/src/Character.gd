@@ -23,7 +23,7 @@ var crouching = false
 var fallen = false
 var gravity = -2
 var sleepiness=100
-var velocity_multiplier = 0.9
+var velocity_multiplier = 1
 signal sleepiness_bar
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -164,6 +164,7 @@ func drop(body):
 		emit_signal("sleepiness_bar",sleepiness)
 		self.transform.origin = respawn_point
 		fallen = false
+		walk("sdf")
 		anim_player.play("sleep_walk")
 	
 func save_checkpoint(body, point):
@@ -177,5 +178,5 @@ func respawn(_var):
 		emit_signal("sleepiness_bar",sleepiness)
 	self.transform.origin = respawn_point
 	fallen = false
-	anim_player.play("sleep_walk")
+	walk("sdf")
 
