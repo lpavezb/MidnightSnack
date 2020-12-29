@@ -8,12 +8,13 @@ onready var ButtonRight = get_node("/root/Game/Escena2D/Contenedor/Nave/ButtonRi
 onready var ButtonJump = get_node("/root/Game/Escena2D/Contenedor/Nave/JumpButton")
 onready var CrouchButton = get_node("/root/Game/Escena2D/Contenedor/Nave/CrouchButton")
 onready var Switch = get_node("/root/Game/Escena2D/Contenedor/Nave/Switch")
+onready var GravityButton = get_node("/root/Game/Escena2D/Contenedor/Nave/GravityButton")
 
 onready var checkpoints = get_node("/root/Game/World/checkpoints")
+onready var start_n2 = get_node("/root/Game/World/StartN2")
 onready var fall_detector = get_node("/root/Game/World/fallDetector")
 onready var collision_detector = $collisionDetector
 var respawn_point = Vector3(48, 3, -42)
-
 onready var respawn_msg = get_node("/root/Game/Interface/respawn_msg")
 onready var anim_player = $character/AnimationPlayer
 
@@ -117,7 +118,7 @@ func jump():
 		anim_player.play("Jump")
 	
 func crouch():
-	if not jumping:
+	if not (jumping or fallen):
 		crouching = true
 		anim_player.play("crouch_walk")
 		$CollisionShape.translation.y = 0.45
@@ -188,5 +189,11 @@ func respawn(_var):
 	self.transform.origin = respawn_point
 	fallen = false
 	respawn_msg.visible = false
-	walk(0)
+	resetGravity()
+	ButtonJump.set_jumping(jumping)
+	ButtonJump.unpress()
+	if crouching:
+		anim_player.play("crouch_walk")
+	else:
+		anim_player.play("sleep_walk")
 

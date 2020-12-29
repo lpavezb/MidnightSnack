@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/Nivel1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/CreateGroundMeshLib.tres" type="MeshLibrary" id=2]
@@ -20,24 +20,26 @@
 extents = Vector3( 24.6506, 1, 1 )
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 108.792, 1, 795.828 )
+extents = Vector3( 262.689, 1, 795.828 )
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="BoxShape" id=10]
+
+[sub_resource type="CapsuleShape" id=4]
 radius = 0.3
 height = 1.17
 
-[sub_resource type="CapsuleShape" id=4]
+[sub_resource type="CapsuleShape" id=5]
 radius = 0.248168
 height = 0.977426
 
-[sub_resource type="StyleBoxFlat" id=5]
-
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.6, 0.6, 0.6, 0.588235 )
 
 [sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0.588235 )
 
 [sub_resource type="StyleBoxFlat" id=8]
+
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.6, 0.6, 0.6, 0.588235 )
 
 [node name="Game" type="Spatial"]
@@ -138,6 +140,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0668, 7.42941, 572.179 )
 [node name="gorro3" parent="World/Spatial" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7906, 6.22939, 962.248 )
 
+[node name="StartN2" type="Area" parent="World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -132.331, 5.33074, 3.351 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="World/StartN2"]
+shape = SubResource( 10 )
+
 [node name="Character" type="KinematicBody" parent="."]
 pause_mode = 1
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 48, 3, -42 )
@@ -147,14 +158,14 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Character"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.886, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="collisionDetector" type="Area" parent="Character"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.940501, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Character/collisionDetector"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166504, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Escena2D" type="CanvasLayer" parent="."]
 pause_mode = 1
@@ -216,8 +227,8 @@ margin_right = 512.0
 margin_bottom = 141.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
 icon = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -229,13 +240,14 @@ margin_right = 512.0
 margin_bottom = 372.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 icon = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Nivel2" parent="." instance=ExtResource( 12 )]
+transform = Transform( -6.51683e-07, 0, 4, 0, 4, 0, -4, 0, -6.51683e-07, -144.538, 0, 0 )
 [connection signal="pressed" from="Interface/Pause menu/Pause buttons/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Interface/Pause menu/Pause buttons/quit" to="." method="_on_quit_pressed"]

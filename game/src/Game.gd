@@ -16,6 +16,7 @@ var audio
 func _ready():
 	audio = $AudioStreamPlayer
 	$AudioStreamPlayer.play()
+	print($World/StartN2.transform.origin)
 	audio.connect("finished", self, "on_finished")
 	pass
 	
