@@ -87,5 +87,6 @@ func pass_level():
 	tutorial.get_node("Siguiente2").visible = false
 	victory_player.stream_paused = true
 	music_player.play()
+	character.current_level = 2
 	character.teleport(character, start_n2.transform.origin)
 	get_tree().paused = false

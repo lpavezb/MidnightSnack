@@ -188,17 +188,21 @@ func drop(body):
 	if body.name == "Character":
 		sleepiness=sleepiness-20
 		emit_signal("sleepiness_bar",sleepiness)
-		self.transform.origin = respawn_point
 		fallen = false
 		walk("sdf")
+		respawn(0)
+		
 	
 func save_checkpoint(body, point):
 	if(body.name == "Character"):
 		respawn_point = point#body.transform.origin
 	
 func respawn(_var):
-	if sleepiness==0:
-		respawn_point = Vector3(48, 3, -42)
+	if sleepiness<=0:
+		if current_level == 1:
+			respawn_point = Vector3(48, 3, -42)
+		else:
+			respawn_point = start_n2.transform.origin
 		sleepiness=100
 		emit_signal("sleepiness_bar",sleepiness)
 	self.transform.origin = respawn_point
