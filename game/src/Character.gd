@@ -197,7 +197,7 @@ func save_checkpoint(body, point):
 		respawn_point = point#body.transform.origin
 	
 func respawn(_var):
-	if sleepiness==0:
+	if sleepiness<=0:
 		respawn_point = Vector3(48, 3, -42)
 		sleepiness=100
 		emit_signal("sleepiness_bar",sleepiness)

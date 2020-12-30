@@ -138,7 +138,7 @@ data = {
 }
 __meta__ = {
 "_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, -328, 0 )
+"_editor_floor_": Vector3( 0, -327, 0 )
 }
 
 [node name="EdificiosFront[-97][-366][-381][-1238][-1885][-2739]" type="GridMap" parent="."]
