@@ -148,12 +148,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.33, 3.29455, 941.438 )
 shape = SubResource( 1 )
 
 [node name="checkpoin12" type="Area" parent="World/checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.877, 7.45319, 7.21559 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -136.277, 5.76058, 7.21559 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin12"]
 shape = SubResource( 1 )
 
 [node name="checkpoin13" type="Area" parent="World/checkpoints"]
+
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -129.386, 7.45319, 161.711 )
 
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin13"]
@@ -228,7 +229,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -96.7429, 5.80967, 641.575 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -245.915, 5.64065, 660.329 )
 
 [node name="StartN2" type="Area" parent="World"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -132.331, 4.87773, 3.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -136.963, 4.87773, -1.80437 )
 __meta__ = {
 "_edit_group_": true
 }
