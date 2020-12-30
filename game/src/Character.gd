@@ -58,7 +58,7 @@ func _ready():
 	collision_detector.connect("body_entered", self, "collision")
 	anim_player.connect("animation_finished", self, "walk")
 
-	end_n1.connect("body_entered", self, "teleport", [start_n2.transform.origin])
+	#end_n1.connect("body_entered", self, "teleport", [start_n2.transform.origin])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	print(sleepiness)
