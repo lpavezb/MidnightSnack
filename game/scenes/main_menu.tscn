@@ -37,7 +37,8 @@ bg_color = Color( 0.207843, 0.207843, 0.207843, 1 )
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.6, 0.207843, 0.207843, 0.207843 )
 
-[sub_resource type="StyleBoxEmpty" id=12]
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0.145098 )
 
 [node name="Main menu" type="Node"]
 pause_mode = 2
@@ -171,10 +172,10 @@ __meta__ = {
 }
 
 [node name="Back" type="Button" parent="Credits"]
-margin_left = 1563.0
-margin_top = 920.0
-margin_right = 1856.0
-margin_bottom = 1042.0
+margin_left = 19.0
+margin_top = 24.0
+margin_right = 319.0
+margin_bottom = 146.0
 custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 11 )
 custom_styles/normal = SubResource( 12 )
