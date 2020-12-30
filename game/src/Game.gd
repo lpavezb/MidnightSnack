@@ -6,6 +6,7 @@ var next_chunk_coord = Vector3(-10, -2, 0)
 
 onready var map = $World/Ground
 onready var end_n1 = $World/END
+onready var end_n2 = $World/END2
 onready var start_n2 = $World/StartN2
 
 onready var character = $Character
@@ -24,7 +25,8 @@ func _ready():
 	$AudioStreamPlayer.play()
 	print($World/StartN2.transform.origin)
 	audio.connect("finished", self, "on_finished")
-	end_n1.connect("body_entered", self, "show_paper")
+	end_n1.connect("body_entered", self, "show_paper1")
+	end_n2.connect("body_entered", self, "show_paper2")
 	get_tree().paused = true
 	
 func _process(_delta):
@@ -62,12 +64,18 @@ func _on_Siguiente_pressed():
 		tutorial_step += 1
 		tutorial.get_child(tutorial_step).visible = true
 	
-func show_paper(body):
+func show_paper1(body):
 	if body.name == "Character":
 		tutorial.get_node("Noticia1").visible = true
 		tutorial.get_node("Siguiente2").visible = true
 		get_tree().paused = true
 
+func show_paper2(body):
+	if body.name == "Character":
+		tutorial.get_node("Noticia2").visible = true
+		tutorial.get_node("Salir").visible = true
+		get_tree().paused = true
+		
 func pass_level():
 	tutorial.get_node("Noticia1").visible = false
 	tutorial.get_node("Siguiente2").visible = false
