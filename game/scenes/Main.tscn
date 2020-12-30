@@ -215,6 +215,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6628, 5.857, 1056.76 )
 [node name="trophy" parent="World/Objetos" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154.49, 7.49045, 816.743 )
 
+[node name="gorro5" parent="World/Objetos" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -137.222, 4.05201, 181.134 )
+
+[node name="gorro6" parent="World/Objetos" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194.509, 5.5432, 267.984 )
+
+[node name="gorro7" parent="World/Objetos" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -96.7429, 5.80967, 641.575 )
+
+[node name="gorro8" parent="World/Objetos" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -245.915, 5.64065, 660.329 )
+
 [node name="StartN2" type="Area" parent="World"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -132.331, 4.87773, 3.351 )
 __meta__ = {
