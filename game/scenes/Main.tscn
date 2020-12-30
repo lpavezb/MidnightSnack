@@ -228,6 +228,16 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 7.36305, 2.09766 )
 shape = SubResource( 4 )
 
+[node name="END2" type="Area" parent="World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -155.826, 0, 810.57 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="World/END2"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 7.36305, 2.09766 )
+shape = SubResource( 4 )
+
 [node name="Character" type="KinematicBody" parent="."]
 pause_mode = 1
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 48, 3, -42 )
