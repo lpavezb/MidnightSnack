@@ -177,6 +177,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -221.401, 7.45319, 335.854 )
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin16"]
 shape = SubResource( 1 )
 
+[node name="checkpoin19" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194.258, 7.45319, 254.272 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin19"]
+shape = SubResource( 1 )
+
 [node name="checkpoin17" type="Area" parent="World/checkpoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7032, 7.45319, 564.274 )
 
