@@ -12,12 +12,15 @@ onready var GravityButton = get_node("/root/Game/Escena2D/Contenedor/Nave/Gravit
 
 onready var checkpoints = get_node("/root/Game/World/checkpoints")
 onready var start_n2 = get_node("/root/Game/World/StartN2")
+onready var end_n1 = get_node("/root/Game/World/END")
 onready var fall_detector = get_node("/root/Game/World/fallDetector")
 onready var collision_detector = $collisionDetector
-var respawn_point = Vector3(48, 3, -42)
+var start_n1 = Vector3(48, 3, -42)
+var respawn_point = start_n1
 onready var respawn_msg = get_node("/root/Game/Interface/respawn_msg")
 onready var anim_player = $character/AnimationPlayer
 
+var current_level = 1
 var CSHeight
 var CSTranslation
 var jumping = false
@@ -55,7 +58,7 @@ func _ready():
 	collision_detector.connect("body_entered", self, "collision")
 	anim_player.connect("animation_finished", self, "walk")
 
-
+	end_n1.connect("body_entered", self, "teleport", [start_n2.transform.origin])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	print(sleepiness)
@@ -63,6 +66,11 @@ func _ready():
 var linear_vel = Vector3()
 var speed = 0.5
 
+func teleport(body, point):
+	if body.name == "Character":
+		self.transform.origin = point
+		current_level = 2
+	
 func adjust_velocity(state):
 	# {0: up, 1: center, 2: down}
 	if state == 0:
@@ -92,6 +100,13 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("respawn"):
 		respawn(0)
 	
+	if Input.is_action_just_pressed("ui_focus_prev"):
+		if current_level == 1:
+			self.transform.origin = start_n2.transform.origin
+			current_level = 2
+		elif current_level == 2:
+			self.transform.origin = start_n1
+			current_level = 1
 
 func recover():
 	if sleepiness<60:
