@@ -68,7 +68,7 @@ func _on_Siguiente_pressed():
 	
 func show_paper1(body):
 	if body.name == "Character":
-		music_player.stop()
+		music_player.stream_paused = true
 		victory_player.play()
 		tutorial.get_node("Noticia1").visible = true
 		tutorial.get_node("Siguiente2").visible = true
@@ -76,7 +76,7 @@ func show_paper1(body):
 
 func show_paper2(body):
 	if body.name == "Character":
-		music_player.stop()
+		music_player.stream_paused = true
 		victory_player.play()
 		tutorial.get_node("Noticia2").visible = true
 		tutorial.get_node("Salir").visible = true
@@ -85,6 +85,7 @@ func show_paper2(body):
 func pass_level():
 	tutorial.get_node("Noticia1").visible = false
 	tutorial.get_node("Siguiente2").visible = false
+	victory_player.stream_paused = true
 	music_player.play()
 	character.teleport(character, start_n2.transform.origin)
 	get_tree().paused = false
