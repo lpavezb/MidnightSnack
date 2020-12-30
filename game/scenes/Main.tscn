@@ -31,34 +31,34 @@ extents = Vector3( 262.689, 1, 795.828 )
 
 [sub_resource type="BoxShape" id=3]
 
-[sub_resource type="BoxShape" id=14]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 19.6666, 2.71134, 4.88815 )
 
-[sub_resource type="CapsuleShape" id=4]
+[sub_resource type="CapsuleShape" id=5]
 radius = 0.3
 height = 1.17
 
-[sub_resource type="CapsuleShape" id=5]
+[sub_resource type="CapsuleShape" id=6]
 radius = 0.248168
 height = 0.977426
 
-[sub_resource type="StyleBoxFlat" id=6]
-
 [sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.6, 0.6, 0.6, 0.588235 )
 
 [sub_resource type="StyleBoxFlat" id=8]
-
-[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.6, 0.6, 0.6, 0.588235 )
 
+[sub_resource type="StyleBoxFlat" id=9]
+
 [sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0.588235 )
 
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="StyleBoxFlat" id=11]
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxEmpty" id=12]
 
-[sub_resource type="StyleBoxEmpty" id=13]
+[sub_resource type="StyleBoxFlat" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
 
 [node name="Game" type="Spatial"]
 pause_mode = 2
@@ -142,6 +142,48 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.33, 3.29455, 941.438 )
 [node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin11"]
 shape = SubResource( 1 )
 
+[node name="checkpoin12" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.877, 7.45319, 7.21559 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin12"]
+shape = SubResource( 1 )
+
+[node name="checkpoin13" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -129.386, 7.45319, 161.711 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin13"]
+shape = SubResource( 1 )
+
+[node name="checkpoin14" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -117.226, 7.45319, 331.6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin14"]
+shape = SubResource( 1 )
+
+[node name="checkpoin15" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150.662, 7.45319, 336.183 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin15"]
+shape = SubResource( 1 )
+
+[node name="checkpoin16" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -212.659, 7.45319, 339.937 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin16"]
+shape = SubResource( 1 )
+
+[node name="checkpoin17" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.31, 7.45319, 751.137 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin17"]
+shape = SubResource( 1 )
+
+[node name="checkpoin18" type="Area" parent="World/checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -310.583, 7.45319, 751.137 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/checkpoints/checkpoin18"]
+shape = SubResource( 1 )
+
 [node name="fallDetector" type="Area" parent="World"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.4581, -10.7532, 483.666 )
 
@@ -176,7 +218,7 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="World/END"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 7.36305, 2.09766 )
-shape = SubResource( 14 )
+shape = SubResource( 4 )
 
 [node name="Character" type="KinematicBody" parent="."]
 pause_mode = 1
@@ -187,14 +229,14 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Character"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.886, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="collisionDetector" type="Area" parent="Character"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.940501, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Character/collisionDetector"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166504, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Escena2D" type="CanvasLayer" parent="."]
 pause_mode = 1
@@ -256,8 +298,8 @@ margin_right = 512.0
 margin_bottom = 141.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 icon = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -269,8 +311,8 @@ margin_right = 512.0
 margin_bottom = 372.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 icon = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -325,8 +367,8 @@ margin_left = 1538.0
 margin_top = 932.0
 margin_right = 1893.0
 margin_bottom = 1052.0
-custom_styles/hover = SubResource( 10 )
-custom_styles/normal = SubResource( 11 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
 icon = ExtResource( 21 )
 expand_icon = true
 __meta__ = {
@@ -339,8 +381,8 @@ margin_left = 1559.33
 margin_top = 917.173
 margin_right = 1871.33
 margin_bottom = 1051.17
-custom_styles/hover = SubResource( 12 )
-custom_styles/normal = SubResource( 13 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
 icon = ExtResource( 22 )
 expand_icon = true
 __meta__ = {
