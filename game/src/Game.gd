@@ -16,15 +16,17 @@ onready var tutorial = $"Interface/Tutorial"
 
 
 var tutorial_step = 0
-var audio
+var music_player
+var victory_player
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	audio = $AudioStreamPlayer
-	$AudioStreamPlayer.play()
+	music_player = $AudioStreamPlayer
+	music_player.play()
+	music_player.connect("finished", self, "on_finished")
+	victory_player = $AudioStreamPlayer2
 	print($World/StartN2.transform.origin)
-	audio.connect("finished", self, "on_finished")
 	end_n1.connect("body_entered", self, "show_paper1")
 	end_n2.connect("body_entered", self, "show_paper2")
 	get_tree().paused = true
@@ -34,7 +36,7 @@ func _process(_delta):
 		pause()
 
 func on_finished():
-	$AudioStreamPlayer.play(71.4)
+	music_player.play(71.4)
 	print("loop music")
 	
 
@@ -66,12 +68,16 @@ func _on_Siguiente_pressed():
 	
 func show_paper1(body):
 	if body.name == "Character":
+		music_player.stop()
+		victory_player.play()
 		tutorial.get_node("Noticia1").visible = true
 		tutorial.get_node("Siguiente2").visible = true
 		get_tree().paused = true
 
 func show_paper2(body):
 	if body.name == "Character":
+		music_player.stop()
+		victory_player.play()
 		tutorial.get_node("Noticia2").visible = true
 		tutorial.get_node("Salir").visible = true
 		get_tree().paused = true
@@ -79,5 +85,6 @@ func show_paper2(body):
 func pass_level():
 	tutorial.get_node("Noticia1").visible = false
 	tutorial.get_node("Siguiente2").visible = false
+	music_player.play()
 	character.teleport(character, start_n2.transform.origin)
 	get_tree().paused = false

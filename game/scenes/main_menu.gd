@@ -10,6 +10,7 @@ func _ready():
 
 
 func _on_New_game_pressed():
+	audio.stop()
 	var _a = get_tree().change_scene("res://scenes/Main.tscn")
 	
 
