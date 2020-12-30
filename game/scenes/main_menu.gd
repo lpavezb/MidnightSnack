@@ -4,7 +4,7 @@ var audio
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	audio = get_node("/root/Main menu/AudioStreamPlayer")
-	$AudioStreamPlayer.play()
+	audio.play()
 	pass
 	
 
